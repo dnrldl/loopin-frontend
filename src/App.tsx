@@ -7,8 +7,6 @@ function App() {
   const theme = useThemeStore((s) => s.theme);
   const applyTheme = useThemeStore((s) => s.applyTheme);
 
-  console.log(window.matchMedia('(prefers-color-scheme: dark)').matches);
-
   useEffect(() => {
     applyTheme(theme);
   }, [theme, applyTheme]);
