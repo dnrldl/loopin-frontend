@@ -1,19 +1,25 @@
-import Header from './Header';
-import Navbar from './Navbar';
+import React from 'react';
+import Header, { type HeaderProps } from '@/app/components/Header';
 
 interface ContainerProps {
   children: React.ReactNode;
+  headerOpt?: HeaderProps;
 }
 
-const Container = ({ children }: ContainerProps) => {
+const Container = ({ children, headerOpt }: ContainerProps) => {
   return (
-    <div>
-      <Header />
+    <>
+      {headerOpt && (
+        <Header
+          left={headerOpt.left}
+          center={headerOpt.center}
+          right={headerOpt.right}
+          backButton={headerOpt.backButton}
+        />
+      )}
       {children}
-      <Navbar />
-    </div>
+    </>
   );
 };
-Container.displayName = 'Container';
 
 export default Container;

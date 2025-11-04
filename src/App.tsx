@@ -4,12 +4,11 @@ import AppRouter from '@/app/router/AppRouter';
 import { useThemeStore } from '@/shared/stores/themeStore';
 
 function App() {
-  const theme = useThemeStore((s) => s.theme);
   const applyTheme = useThemeStore((s) => s.applyTheme);
 
   useEffect(() => {
-    applyTheme(theme);
-  }, [theme, applyTheme]);
+    applyTheme();
+  }, [applyTheme]);
 
   return (
     <AppProviders>
